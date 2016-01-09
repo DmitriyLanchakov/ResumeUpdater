@@ -43,7 +43,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.swing.JCheckBox;
 
-//Данный класс отвечает за создание графического интерфейса программы
+/*
+   Данный класс отвечает за создание графического интерфейса программы
+
+   This class is responsible for creating the graphical interface
+*/
  
 public class GUI extends JFrame {
     
@@ -72,7 +76,11 @@ public class GUI extends JFrame {
         setVisible(true);
     }
     
-    //Метод создающий resumePanel со списком резюме и кнопками добаваления/удаления
+    /*
+       Метод создающий resumePanel со списком резюме и кнопками добавления/удаления
+       
+       Method creates resumePanel with the resumes list and add/remove buttons
+    */
  
     public JPanel makeResumePanel(){
         
@@ -84,7 +92,11 @@ public class GUI extends JFrame {
         
      DefaultListModel listModel = new DefaultListModel();
      
-     //Считыаем список резюме из файла
+     /*
+        Считываем список резюме из файла
+        
+        Read the list from summary file
+     */
      
      ResumeList.read();
                 
@@ -141,8 +153,10 @@ public class GUI extends JFrame {
      
     } 
     
-    //Метод содающий settingsPanel с таблицей данных POST завпроса
-    
+    /*
+       Метод содающий settingsPanel с таблицей данных POST завпроса
+       Method that creates settingsPanel the table data of the POST request
+    */
     public JPanel makeSettingsPanel(){
     
      JPanel settingsPanel = new JPanel();
@@ -153,7 +167,11 @@ public class GUI extends JFrame {
      model.addColumn("Field");
      model.addColumn("Data");
  
-     //Считываем данные POST запроса из файла
+     /*
+        Считываем данные POST запроса из файла
+        
+        Read POST request data from the file
+     */
       
      Properties  RequestConfig = new Properties();
         try {
@@ -161,7 +179,11 @@ public class GUI extends JFrame {
         } catch (IOException e) {
         }
      
-     //Записыаем полученные данные в HashMap hm   
+     /*
+        Записыdаем полученные данные в HashMap hm   
+        
+        Write data in HashMap hm   
+     */
         
      Map<String, String> hm = new HashMap<String, String>();
            for(String key : RequestConfig.stringPropertyNames()) {
@@ -169,13 +191,21 @@ public class GUI extends JFrame {
            hm.put(key,value);
      }
      
-     //Добавляем данные hm в модель
+     /* 
+        Добавляем данные hm в модель
+            
+        Add the data hm to the model
+     */
            
      for (Map.Entry<String,String> entry : hm.entrySet()) {
         model.addRow(new String[] { entry.getKey(), entry.getValue() });
      }
     
-    //Создаем таблицу
+    /* 
+       Создаем таблицу
+     
+       Create a table
+    */
      
         JTable table = new JTable(model)
     {
@@ -186,19 +216,32 @@ public class GUI extends JFrame {
         };
         table.setAutoResizeMode( JTable.AUTO_RESIZE_OFF );
         
-        //Используем рендерер MyCellRenderer и TableColumnAdjuster
+        /*
+           Используем рендерер MyCellRenderer и TableColumnAdjuster
+        
+           Use MyCellRenderer renderer and TableColumnAdjuster
+        */
         
         table.getColumnModel().getColumn(1).setCellRenderer(new MyCellRenderer());
         TableColumnAdjuster tca = new TableColumnAdjuster(table);
         tca.adjustColumns();
         
-        //Данный Listener следит за изменениями вносимыми в таблицу и автоматически 
-        //перезаписывает файл PostRequest.properties новыми 
+        /*
+           Данный Listener следит за изменениями вносимыми в таблицу и автоматически 
+           перезаписывает файл PostRequest.properties новыми 
+           
+           This Listener watches for changes you make to a table and automatically 
+           overwrites the file PostRequest.properties with new once
+        */
         
         table.getModel().addTableModelListener(new TableModelListener() {
         public void tableChanged(TableModelEvent e) {
                      
-        //Считываем измененные данные из таблицы и добавляем их в HashMap changedData
+        /*
+           Считываем измененные данные из таблицы и добавляем их в HashMap changedData
+            
+           Read the modified data from table and add it to a changedData HashMap  
+        */
             
         Map<String, String> changedData = new HashMap<String, String>();
         for(int i=0; i< table.getRowCount();i++){

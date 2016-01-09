@@ -13,23 +13,35 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-// Данный класс создает файл ResumeList.txt (в нем хранятся id резюме),
-// отвечает за чтение и запись данного файла
+/* 
+   Данный класс создает файл ResumeList.txt (в нем хранятся id резюме),
+   отвечает за чтение и запись данного файла
+
+   This class creates the file ResumeList.txt (this stores id summary),
+   responsible for reading and writing this file
+*/
 
 public class ResumeList {
     
    public static ArrayList <String> resumes = new ArrayList<String>();
   
-   // Данный метод считывает ArrayList из ResumeList.txt и присваивает его данные переменной resumes
-
+   /*
+      Данный метод считывает ArrayList из ResumeList.txt и присваивает его данные переменной resumes
+     
+      This method reads the ArrayList from ResumeList.txt and assigns it data to the resumes variable  
+   */
    public static void read () {
 
             try {
                  
             File file = new File("ResumeList.txt");
 
-            // Если файл не создан, то создаем его
-
+            /*
+               Если файл не создан, то создаем его
+            
+               If the file is not created, then create it
+            */
+            
             if (!file.exists()) {
                file.createNewFile();
             }
@@ -55,7 +67,11 @@ public class ResumeList {
    
  }
 
-   // Данный метод записывает переменную resumes в ResumeList.txt
+   /*
+      Данный метод записывает переменную resumes в ResumeList.txt
+   
+      This method writes a resumes variable in ResumeList.txt
+   */
    
    public static void write () {
 

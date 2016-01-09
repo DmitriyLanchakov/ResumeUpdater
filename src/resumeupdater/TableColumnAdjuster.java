@@ -13,8 +13,13 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.table.*;
 
-//Класс взят отсюда: https://tips4java.wordpress.com/2008/11/10/table-column-adjuster/
-//Используется для управления шириной колонок в таблице.
+/*
+   Класс взят отсюда: https://tips4java.wordpress.com/2008/11/10/table-column-adjuster/
+   Используется для управления шириной колонок в таблице.
+
+   This class is taken from here: https://tips4java.wordpress.com/2008/11/10/table-column-adjuster/
+   It is used to control the width of columns in the table.
+*/
 
 /*
  *	Class to manage the widths of colunmns in a table.

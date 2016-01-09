@@ -10,7 +10,11 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.table.TableCellRenderer;
 
-//Данный рендерер позволяет отображать в ячейке полностью весь текст
+/*
+  Данный рендерер позволяет отображать в ячейке полностью весь текст
+
+  This renderer allows to display the entire cell text
+*/
 
 public class MyCellRenderer extends JTextArea implements TableCellRenderer {
      public MyCellRenderer() {

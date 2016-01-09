@@ -16,8 +16,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-//Данный класс посылает POST запрос на обновление резюме
+/*
+   Данный класс посылает POST запрос на обновление резюме
 
+   This class sends a POST request to the update summary
+*/
 
 public  class ResumeUpdater implements Runnable {
     
@@ -35,11 +38,19 @@ public  class ResumeUpdater implements Runnable {
 	URL obj = new URL(url);
 	HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-	//Добавляем заголовок
+	/*
+           Добавляем заголовок
+        
+           Add the header
+        */
         
 	con.setRequestMethod("POST");
                                 
-        //Считываем данные из PostRequest.properties
+        /*
+           Считываем данные из PostRequest.properties
+        
+           Read data from a PostRequest.properties
+        */
         
         Properties  RequestConfig = new Properties();
         try {
@@ -47,7 +58,11 @@ public  class ResumeUpdater implements Runnable {
         } catch (IOException e) {
         }
         
-        //Записываем их в HashMap hm
+        /* 
+           Записываем их в HashMap hm
+        
+           Put it in the hm HashMap 
+        */
         
         Map<String, String> hm = new HashMap<String, String>();
            for(String key : RequestConfig.stringPropertyNames()) {
@@ -55,7 +70,11 @@ public  class ResumeUpdater implements Runnable {
            hm.put(key,value);
         }
         
-        //Задаем параметры запроса 
+        /*
+           Задаем параметры запроса 
+           
+           Set query parameters
+        */
            
         for (Map.Entry<String,String> entry : hm.entrySet()) {
            con.setRequestProperty(entry.getKey(), entry.getValue());
@@ -69,7 +88,11 @@ public  class ResumeUpdater implements Runnable {
 	wr.flush();
 	wr.close();
           
-	//Выводим результаты запроса 
+	/*
+           Выводим результаты запроса 
+        
+           Print the query results
+        */
         
 	int responseCode = con.getResponseCode();
 	System.out.println("\nSending 'POST' request to URL : " + url);

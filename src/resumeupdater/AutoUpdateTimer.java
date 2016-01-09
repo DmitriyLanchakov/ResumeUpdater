@@ -10,8 +10,13 @@ import java.util.TimerTask;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-//Данный клас отвечает за автоматическое обновление всех резюме по времени
-//Используется http://crunchify.com/how-to-run-multiple-threads-concurrently-in-java-executorservice-approach/
+/*
+   Данный клас отвечает за автоматическое обновление всех резюме по времени
+   Используется http://crunchify.com/how-to-run-multiple-threads-concurrently-in-java-executorservice-approach/
+
+   This class is responsible for automatically updating summary every n time period
+   Used http://crunchify.com/how-to-run-multiple-threads-concurrently-in-java-executorservice-approach/
+*/
 
 public class AutoUpdateTimer {
     
@@ -39,7 +44,11 @@ public class AutoUpdateTimer {
                 }
                 executor.shutdown();
                 
-                //Повторить каждые 3600 секунд (1 час)
+                /*
+                   Повторить каждые 3600 секунд (1 час
+                   
+                   Repeat every 3600 seconds (1 hour)
+                */
 
                 timer.schedule(new PeriodicTask(), 3600 * 1000);
         }
