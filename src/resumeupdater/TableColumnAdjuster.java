@@ -1,10 +1,5 @@
 package resumeupdater;
 
-/**
- * 
- * @author SteshenkoMA
- */
-
 import java.awt.*;
 import java.awt.event.*;
 import java.beans.*;

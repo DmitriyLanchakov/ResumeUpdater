@@ -1,10 +1,5 @@
 package resumeupdater;
 
-/**
- * 
- * @author SteshenkoMA
- */
-
 import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.JTextArea;

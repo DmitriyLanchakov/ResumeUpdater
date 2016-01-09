@@ -1,10 +1,5 @@
 package resumeupdater;
 
-/**
- *
- * @author BigMax
- */
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
